@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+
+$font-stack:'Montserrat', Helvetica, sans-serif;
+$bg-color: #f3f3f3;
+
+* {
+    box-sizing: border-box;
+    margin: 0em;
+    padding: 0em;
+}
+body {
+    background-color: $bg-color;
+    font-family: $font-stack;
+}

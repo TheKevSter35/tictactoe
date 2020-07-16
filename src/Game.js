@@ -1,5 +1,4 @@
 import React from 'react';
-import './Game.css';
 
 function calculateWinner(squares) {
     const lines = [
@@ -28,7 +27,7 @@ class Square extends React.Component {
         return (
             <button
                 className="square"
-                onClick={() => this.props.onClick()}
+                onClick={() => this.props.onClick() }
             >
                 {this.props.value}
             </button>
@@ -50,12 +49,14 @@ class Board extends React.Component {
             return;
           }
         squares[i] = this.state.xIsNext ? 'X' : 'O';
+       
         this.setState({ squares: squares, xIsNext: !this.state.xIsNext, });
     }
 
     renderSquare(i) {
         return <Square value={this.state.squares[i]}
             onClick={() => this.handleClick(i)} />
+
     }
 
     render() {
@@ -68,8 +69,9 @@ class Board extends React.Component {
         }
 
         return (
-            <div>
-                <div className="status">{status}</div>
+<section className="game-board">
+                <h2 className="status">{status}</h2>
+                <div className="field">
                 <div className="board-row">
                     {this.renderSquare(0)}
                     {this.renderSquare(1)}
@@ -85,21 +87,22 @@ class Board extends React.Component {
                     {this.renderSquare(7)}
                     {this.renderSquare(8)}
                 </div>
-            </div>
+                </div>
+                </section>
         );
     }
 }
 function Game() {
     return (
-        <div className="game">
-            <div className="game-board">
+        <main className="game">
+            
                 <Board />
-            </div>
-            <div className="game-info">
+          
+            <section className="game-info">
                 <div>{/* status */}</div>
                 <ol>{/* TODO */}</ol>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
 
