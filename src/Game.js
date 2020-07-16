@@ -62,7 +62,10 @@ class Game extends React.Component {
         };
     }
     handleClick(i) {
-        const history = this.state.history.slice(0, this.state.stepNumber + 1);
+        const history = this
+            .state
+            .history
+            .slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
         const squares = current
             .squares
@@ -85,10 +88,10 @@ class Game extends React.Component {
     }
     jumpTo(step) {
         this.setState({
-          stepNumber: step,
-          xIsNext: (step % 2) === 0,
+            stepNumber: step,
+            xIsNext: (step % 2) === 0
         });
-      }
+    }
 
     render() {
         const history = this.state.history;
