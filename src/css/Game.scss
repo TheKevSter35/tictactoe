@@ -1,16 +1,12 @@
-.game {
-  max-width: 1170px;
-  margin: 0 auto;
-  display: flex;
-  padding: 1em;
-  justify-content: flex-start;
-  flex-direction: row;
-
+main {
   .field {
     display: flex;
-    flex-direction: column;
-    transform: translateX(0%) perspective(340px) rotatey(-31deg);
+    flex-direction: row;
+    transform: translateX(-10%) perspective(468px) rotatey(-31deg);
     padding-top: 2em;
+    max-width: 20em;
+    margin: 0 auto;
+    height: 30em;
 
     .square {
       background: #f3f3f3;
@@ -29,16 +25,17 @@
     }
 
     .square:hover {
-      background-color: red;
-      box-shadow: 12px 0px 2px 1px #820101;
-      border: 4px solid #820101;
+      background-color: rgb(179, 4, 179);
+      box-shadow: 12px 0px 2px 1px purple;
+      border: 4px solid purple;
     }
   }
 
-  .game-info {
-    margin: 3em;
-
-    ol {
+  .info {
+    margin: 3em auto;
+    //for bem it is &__moves
+    .info__moves {
+      padding-left: 1em;
       li {
         button {
           margin: 0.5em;

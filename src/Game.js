@@ -36,7 +36,6 @@ function calculateWinner(squares) {
     return null;
 }
 
-
 class Square extends React.Component {
 
     render() {
@@ -113,6 +112,7 @@ class Game extends React.Component {
         squares[i] = this.state.xIsNext
             ? 'X'
             : 'O';
+
         this.setState({
             history: history.concat([
                 {
@@ -121,6 +121,7 @@ class Game extends React.Component {
             ]),
             stepNumber: history.length,
             xIsNext: !this.state.xIsNext
+
         });
     }
     jumpTo(step) {
@@ -136,7 +137,7 @@ class Game extends React.Component {
         const winner = calculateWinner(current.squares);
         const moves = history.map((step, move) => {
             const desc = move
-                ? 'Go to move #' + move 
+                ? 'Go to move #' + move
                 : 'Go to game start';
             return (
                 <li key={move}>
@@ -146,24 +147,24 @@ class Game extends React.Component {
         });
         let status;
         if (winner) {
-            status = 'Winner: ' + winner ;
-        }
-        else if (history.length === 10) {
+            status = 'Winner: ' + winner + moves;
+        } else if (history.length === 10) {
             status = 'Draw: '
-        }
-         else {
+        } else {
             status = 'Next player: ' + (this.state.xIsNext
                 ? 'X'
                 : 'O');
         }
         return (
-            <main className="game">
+            <main>
 
                 <Board squares={current.squares} onClick={(i) => this.handleClick(i)}/>
 
-                <section className="game-info">
-                    <h2 className="status">{status}</h2>
-                    <ol>{moves}</ol>
+                <section className="info">
+                    <div className="info__content">
+                        <h2 className="info__status">{status}</h2>
+                        <ol className="info__moves">{moves}</ol>
+                    </div>
                 </section>
             </main>
         );
